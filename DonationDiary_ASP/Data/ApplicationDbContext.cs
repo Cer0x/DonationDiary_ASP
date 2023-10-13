@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using DonationDiary_ASP.Models;
 
 namespace DonationDiary_ASP.Data
 {
@@ -9,5 +10,6 @@ namespace DonationDiary_ASP.Data
             : base(options)
         {
         }
+        public DbSet<DonationDiary_ASP.Models.Entry> Entry { get; set; } = default!;
     }
 }
