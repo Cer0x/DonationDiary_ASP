@@ -3,14 +3,11 @@
     public class Entry
     {
         public int Id { get; set; }
-        public string DateOfDonation { get; set; }
-        public int BloodAmount { get; set; }
+        public required string DateOfDonation { get; set; }
+        public required int BloodAmount { get; set; }
         public string? Comment { get; set; }
 
-        public Entry()
-        {
-            
-        }
+        public ICollection<user_entries> user_Entries { get; set; }
 
     }
 }
