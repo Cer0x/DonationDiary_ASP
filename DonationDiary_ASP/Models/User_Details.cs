@@ -3,9 +3,9 @@
 
     public class User_Details
     {
-        public required int Id { get; set; }
-        public required string Name { get; set; }
-        public required string Surname { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
         public string? Phone { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }  
