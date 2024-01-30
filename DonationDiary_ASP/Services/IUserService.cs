@@ -4,7 +4,7 @@ namespace DonationDiary_ASP.Services
 {
     public interface IUserService
     {
-        string GetUserId();
+        string GetUserIdAsync();
         Task<IdentityResult> ChangePasswordAsync(ChangePasswordViewModel changepasswordviewmodel);
 
 

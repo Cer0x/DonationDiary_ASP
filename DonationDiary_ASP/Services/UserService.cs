@@ -16,17 +16,18 @@ namespace DonationDiary_ASP.Services
             _userManager = userManager;
         }
 
-        public string? GetUserId()
+        public string? GetUserIdAsync()
         {
             return _httpContext.HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier);
         }
 
         public async Task<IdentityResult> ChangePasswordAsync(ChangePasswordViewModel changePasswordViewModel)
         {
-            var userId = GetUserId();
+            var userId = GetUserIdAsync();
             var user = await _userManager.FindByIdAsync(userId);
             return await _userManager.ChangePasswordAsync(user, changePasswordViewModel.CurrentPassword, changePasswordViewModel.NewPassword);
         }
+
 
     }
 }

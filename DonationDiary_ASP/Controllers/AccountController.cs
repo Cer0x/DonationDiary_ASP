@@ -40,6 +40,7 @@ namespace DonationDiary_ASP.Controllers
             return View("AllUsers", users);
         }
 
+        // LOGGING IN
         public IActionResult Login()
         {
             return View(new LoginViewModel());
@@ -77,6 +78,7 @@ namespace DonationDiary_ASP.Controllers
             return View(loginViewModel);
         }
 
+        // REGISTRATION
         public IActionResult Register()
         {
             return View(new RegisterViewModel());
@@ -109,6 +111,7 @@ namespace DonationDiary_ASP.Controllers
                 Email = registerViewModel.EmailAddress,
                 UserName = registerViewModel.UserName,
             };
+            
             var newUserResponse = await _userManager.CreateAsync(newUser, registerViewModel.Password);
             if (!newUserResponse.Succeeded)
             {
@@ -123,8 +126,6 @@ namespace DonationDiary_ASP.Controllers
                 await _userManager.AddToRoleAsync(newUser, Role.User);
             }
 
-
-
             return View("RegisterCompleted");
         }
         public IActionResult ChangePassword()
@@ -133,6 +134,7 @@ namespace DonationDiary_ASP.Controllers
         }
 
 
+        // PASSWD CHANGE
         [HttpPost]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
         {
@@ -142,7 +144,7 @@ namespace DonationDiary_ASP.Controllers
                 if (change.Succeeded)
                 {
                     ModelState.Clear();
-                    TempData["Success"] = "Password change";
+                    TempData["Success"] = "Password changed";
                     return View();
                 }
 

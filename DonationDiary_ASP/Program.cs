@@ -14,6 +14,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddScoped<Initializer>();
+builder.Services.AddScoped<IServices, EntryService>();
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
