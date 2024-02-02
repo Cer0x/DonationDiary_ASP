@@ -2,9 +2,43 @@
 
 @{
     ViewData["Title"] = "Index";
+
+    // Find the latest date of donation
+    var latestDonation = Model.OrderByDescending(e => e.DateOfDonation).FirstOrDefault();
+
+    DateTime latestDonationDate;
+    DateTime? dateAfterEightWeeks = null;
+
+    // Try to parse the date string to a DateTime object
+    if (latestDonation != null && DateTime.TryParse(latestDonation.DateOfDonation, out latestDonationDate))
+    {
+        // Add 8 weeks to the date
+        dateAfterEightWeeks = latestDonationDate.AddDays(56); // 8 weeks * 7 days
+    }
+
+    var totalBloodAmount = Model.Sum(e => e.BloodAmount);
+    var status = "Not a Donor";
+
+    if (totalBloodAmount > 0)
+    {
+        status = "HDK";
+    }
+    if (totalBloodAmount > 6000){
+        status = "ZHDK III st.";
+    }
+    if (totalBloodAmount > 6000)
+    {
+        status = "ZHDK II st.";
+
+    }
+    if (totalBloodAmount > 6000)
+    {
+        status = "ZHDK I st.";
+    }
 }
 
-<h1>Index</h1>
+<h1>You will be able to donate on @dateAfterEightWeeks?.ToString("yyyy-MM-dd")</h1>
+<h2>Total blood donated: @(Model?.Sum(e => e.BloodAmount) ?? 0), your status is: @(status)</h2>
 
 <p>
     <a asp-action="Create">Create New</a>

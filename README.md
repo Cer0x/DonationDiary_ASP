@@ -3,6 +3,7 @@
 <!-- TOC -->
 - [DonationDiary](#donationdiary)
   - [Introduction](#introduction)
+  - [Database ERD](#database-erd)
   - [Screenshots](#screenshots)
   - [Technologies](#technologies)
   - [Running DonationDiary](#running-donationdiary)
@@ -15,8 +16,12 @@ DonationDiary is a platform for blood Donors located in Poland. It allows you to
 - user entries
 - total amount donated
 - next date of donation
-- user status (awarded medals)
+- user status
 - donation centers
+
+## Database ERD
+![Login page](screenshots/erd.png)
+
 
 ## Screenshots
 ![Login page](screenshots/login.png)
@@ -29,20 +34,19 @@ DonationDiary is a platform for blood Donors located in Poland. It allows you to
 <p style="text-align: center;">Map page</p>
 
 ## Technologies
-
 DonationDiary tech stack:
 
-- ASP .Net
+- ASP.Net
 - JavaScript
 - HTML
-- CSS
-- PostGreSQL / SQL Express
+- Bootstrap
+- PostGreSQL
 
 ## Running DonationDiary
 To launch the DonationDiary application
 
 1. Clone this repository to your local computer.
-2. Copy the database file and import it with Docker.
+2. Open the solution in VS2022
 3. Install all the required dependencies
 4. Launch the application.
 

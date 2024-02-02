@@ -59,8 +59,8 @@ scope.SendUsersAndRolesAsync(app).Wait();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 else
 {
